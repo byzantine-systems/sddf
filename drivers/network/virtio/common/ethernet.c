@@ -289,6 +289,10 @@ static void handle_irq()
     }
 
     if (irq_status & VIRTIO_IRQ_CONFIG) {
+        // START_CHRYSOPOLIS_MODIFICATION: a link change sets the config bit, and
+        // virtio-mmio holds the IRQ line asserted until every set bit is acknowledged.
+        virtio_transport_write_isr(&dev, VIRTIO_IRQ_CONFIG);
+        // END_CHRYSOPOLIS_MODIFICATION
         LOG_DRIVER_ERR("ETH|ERROR: unexpected change in configuration %u\n", irq_status);
     }
 }
