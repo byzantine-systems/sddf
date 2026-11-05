@@ -47,6 +47,9 @@
 #define VIRTIO_BLK_F_GEOMETRY        4  /* Legacy geometry available  */
 #define VIRTIO_BLK_F_RO              5  /* Disk is read-only */
 #define VIRTIO_BLK_F_BLK_SIZE        6  /* Block size of disk is available*/
+// START_CHRYSOPOLIS_MODIFICATION: QEMU calls it WCE
+#define VIRTIO_BLK_F_FLUSH           9  /* Cache flush command support */
+// END_CHRYSOPOLIS_MODIFICATION
 #define VIRTIO_BLK_F_TOPOLOGY       10  /* Topology information is available */
 #define VIRTIO_BLK_F_MQ             12  /* support more than one vq */
 #define VIRTIO_BLK_F_DISCARD        13  /* DISCARD is supported */
